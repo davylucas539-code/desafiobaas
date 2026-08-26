@@ -30,7 +30,7 @@ import type { Classe, Personagem } from "@/types";
 // ---------------------------------------------------------------------------
 export async function listarPersonagens(_uid: string): Promise<Personagem[]> {
   // 🐛 BUG 04 — query sem filtro de userId
-  const q = query(collection(db, "personagens"));
+  const q = query(collection(db, "personagem"));
 
   const snap = await getDocs(q);
   return snap.docs.map((d) => ({ id: d.id, ...d.data() } as Personagem));
